@@ -1,0 +1,21 @@
+head
+	//Meta
+	meta(charset="UTF-8")
+	meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1")
+	title= pageTitle
+	meta(name="description" content="")
+	meta(name="keywords" content="")
+	//end Meta
+
+	//Icons
+	link(rel='shortcut icon', href='assets/images/favicon.ico')
+	- var libs = ['font-awesome/font-awesome.min.css', 'line-awesome/css/line-awesome.min.css']
+	each lib in libs
+		link(rel="stylesheet", media="screen", href="assets/fonts/" + lib)
+	//end Icons
+
+	//CSS
+	- var styles = ['vendor.min.css', 'style.css', 'media.css']
+	each style in styles
+		link(rel="stylesheet", href="assets/css/" + style)
+	//end CSS

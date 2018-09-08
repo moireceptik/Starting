@@ -1,0 +1,243 @@
+// FONT-FAMILY
+=font($alias, $name, $weight, $style)
+	@font-face
+		font-family: $alias
+		src: url("../fonts/" + $name + ".eot")
+		src: url("../fonts/" + $name + ".eot?#iefix") format("embedded-opentype"), url("../fonts/" + $name + ".woff") format("woff"), url("../fonts/" + $name + ".ttf") format("truetype"), url("../fonts/" + $name + ".svg") format("svg")
+		font-weight: $weight
+		font-style: $style
+
+// FONT-SIZE (*px -> *rem)
+@function calculateRem($size) 
+    $remSize: $size / 16px
+    @return $remSize * 1rem
+
+=font-size($size) 
+    font-size: $size
+    font-size: calculateRem($size)
+
+// LINK
+=links($link, $visit, $hover, $active)
+	a 
+		color: $link
+		&:visited
+			color: $visit
+		&:hover
+			color: $hover
+		&:active
+			color: $active
+
+// MEDIA
+=w($width)
+	@media only screen and (max-width: $width+ "px")
+		@content
+
+// Clearfix
+=clr
+	&:after
+		content: " "
+		display: table
+		clear: both
+	*zoom: 1
+
+// ABSOLUT
+=absolut($top: 0, $right: 0, $bottom: 0, $left: 0)
+	position: absolute
+	top: $top
+	left: $left
+	right: $right
+	bottom: $bottom
+
+// STICKY
+=sticky($top: 0)
+	position: -webkit-sticky
+	position: -moz-sticky
+	position: -ms-sticky
+	position: -o-sticky
+	position: sticky
+	top: $top
+
+// background-image
+=pic($name, $repeat: no-repeat, $width: 100%, $height: 100%)
+	background-image: url("../images/#{$name}")
+	background-repeat: $repeat
+	background-position: $width $height
+
+=png($name, $repeat: no-repeat, $width: 100%, $height: 100%)    
+	background-image: url("../images/#{$name}.png")
+	background-repeat: $repeat
+	background-position: $width $height
+
+=jpg($name, $repeat: no-repeat, $width: 100%, $height: 100%)
+	background-image: url("../images/#{$name}.jpg")
+	background-repeat: $repeat
+	background-position: $width $height
+
+// COVER
+=cover
+	-webkit-background-size: cover
+	-moz-background-size: cover
+	-o-background-size: cover
+	background-size: cover
+
+// COUNTER
+=counter($var)
+	counter-reset: $var
+	> li, > dt
+		&:before
+			content: counter($var)
+			counter-increment: $var
+
+// ОБРЕЗАНИЕ ТЕКСТА С ТРОЕТОЧИЯМИ...
+=text-overflow
+	overflow: hidden
+	-ms-text-overflow: ellipsis
+	text-overflow: ellipsis
+	white-space: nowrap
+
+// СГЛАЖИВАНИЕ ШРИФТОВ В SAFARI
+=font-smoothing($val: antialiased)
+    -webkit-font-smoothing: $val
+    -moz-font-smoothing: $val
+    -ms-font-smoothing: $val
+    -o-font-smoothing: $val
+
+// Placeholder
+=placeholder($color)
+	&:-moz-placeholder
+		color: $color
+		opacity: 1
+	&::-moz-placeholder
+		color: $color
+		opacity: 1
+	&::-webkit-input-placeholder
+		color: $color
+		opacity: 1
+
+// ВЫДЕЛЕНИЕ ТЕКСТА
+=unselectable
+	-webkit-touch-callout: none
+	-webkit-user-select: none
+	-khtml-user-select: none
+	-moz-user-select: none
+	-ms-user-select: none
+	user-select: none
+
+=nosel
+	+unselectable
+
+// ЦЕНТРИРОВАНИЕ БЛОКОВ ПО ВЕРТИКАЛИ И ГОРИЗОНТАЛИ
+=vcenter
+	position: absolute
+	top: 50%
+	left: 50%
+	+translate(-50%,-50%)
+
+=translate($width: 100%, $height: 100%)
+	-webkit-transform: translate($width, $height)
+	transform: translate($width, $height)
+
+=flex-center-auto
+	width: 100%
+	height: auto
+	display: -webkit-flex
+	display: -moz-flex
+	display: -ms-flex
+	display: -o-flex
+	display: flex
+	-ms-flex-align: center
+	-webkit-align-items: center
+	-webkit-box-align: center
+	align-items: center
+
+// СТРЕЛКИ И УГОЛКИ ЧЕРЕЗ BORDER
+=arr($width, $height, $bg, $direction)
+	width: 0px
+	height: 0px
+	border-style: solid
+	@if $direction == t // стрелка вверх
+		border-width: 0 $width / 2 + px $height + px $width / 2 + px
+		border-color: transparent transparent $bg transparent
+	@if $direction == r // стрелка вправо
+		border-width: $height / 2 + px 0 $height / 2 + px $width + px
+		border-color: transparent transparent transparent $bg
+	@if $direction == b // стрелка вниз
+		border-width: $height + px $width / 2 + px 0 $width / 2 + px
+		border-color: $bg transparent transparent transparent
+	@if $direction == l // стрелка влево
+		border-width: $height / 2 + px $width + px $height / 2 + px 0
+		border-color: transparent $bg transparent transparent
+	@if $direction == tl // угол
+		border-width: $height + px $width + px 0 0
+		border-color: $bg transparent transparent transparent
+	@if $direction == tr // угол
+		border-width: 0 $width + px $height + px 0
+		border-color: transparent $bg transparent transparent
+	@if $direction == br // угол
+		border-width: 0 0 $height + px $width + px
+		border-color: transparent transparent $bg transparent
+	@if $direction == bl // угол
+		border-width: $height + px 0 0 $width + px
+		border-color: transparent transparent transparent $bg
+
+// SIZE
+=size($width: 100%, $height: 100%)
+	-moz-background-size: $width $height
+	-webkit-background-size: $width $height
+	background-size: $width $height
+
+// BORDER-RADIUS
+=br($radius) 
+	-webkit-border-radius: $radius
+	-moz-border-radius: $radius 
+	-ms-border-radius: $radius
+	border-radius: $radius
+	
+// BOX-SHADOW
+=bs($bshadow)
+	-webkit-box-shadow: $bshadow
+	-moz-box-shadow: $bshadow
+	-ms-box-shadow: $bshadow
+	-o-box-shadow: $bshadow
+	box-shadow: $bshadow
+
+// TEXT-SHADOW
+=ts($string) 
+	-webkit-text-shadow: $string
+	-moz-text-shadow: $string
+	-ms-text-shadow: $string
+	-o-text-shadow: $string
+	text-shadow: $string
+
+// OPACITY
+=opacity($trans)
+	-moz-opacity: $trans
+	-khtml-opacity: $trans
+	opacity: $trans
+	filter: alpha(opactiy=($trans * 100))
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$trans * 100})"
+
+// TRANSFORM
+=rotate($var)
+	-ms-transform: rotate($var+deg)
+	-webkit-transform: rotate($var+deg)
+	-o-transform: rotate($var+deg)
+	transform: rotate($var+deg)
+	
+=scale($var)
+	-ms-transform: scale($var)
+	-webkit-transform: scale($var)
+	transform: scale($var)
+
+//FILTER
+=blur($var)
+	-webkit-filter: blur($var)
+	filter: blur($var)
+
+//TRANSITION
+=transition($args...)
+  -webkit-transition: $args
+  -moz-transition: $args
+  -ms-transition: $args
+  -o-transition: $args
+  transition: $args

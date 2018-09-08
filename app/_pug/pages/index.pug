@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+html(lang="ru-RU")
+	block vars
+		- var pageTitle = 'Главная'
+	include ../includes/_head.pug
+	body
+		include ../includes/_header.pug
+		//Wrapper
+		.wrapper
+			include ../content/_index.pug
+			include ../includes/_footer.pug
+		//end Wrapper
+		include ../includes/_modal.pug
+		include ../includes/_admin-bar.pug
+		include ../includes/_scripts.pug
