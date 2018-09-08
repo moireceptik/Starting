@@ -18,7 +18,7 @@
 ## Установка:
 
 ```
-1. Выполнить команду через терминал: git clone https://github.com/moireceptik/Starting.git
+1. Выполнить команду через терминал: git clone https://github.com/moireceptik/Starting-1.git
 2. Установить Node Modules: **npm i**
 3. Запуск: **gulp**
 4. Сборка проекта в папку dist: **gulp dist**
