@@ -1,23 +1,26 @@
 @charset 'UTF-8';
 
 // 1. Base (базовые стили)
+
+@import "base/mixins/media";
+@import "base/mixins/mixins";
 @import "base/colors";
 @import "base/fonts";
 @import "base/reset";
-@import "base/media";
-@import "base/mixins";
 @import "base/sprite";
+@import "base/typography";
 
-// 2. Partials (структурные элементы)
-@import "partials/typography";
-@import "partials/buttons";
-@import "partials/form";
-@import "partials/list";
-@import "partials/nav";
-@import "partials/block";
-@import "partials/modal";
-@import "partials/dm-top";
-@import "partials/admin-bar";
+// 2. Block (блоки)
+@import "blocks/block";
+@import "blocks/modal";
+@import "blocks/dm-top";
+@import "blocks/admin-bar";
 
-// 3. Vendors (плагины)
-@import "vendors/bootstrap";
+// 3. Elements (структурные элементы)
+@import "elements/buttons";
+@import "elements/form";
+@import "elements/list";
+@import "elements/nav";
+
+// 4. Plugins (плагины)
+@import "plugins/bootstrap";
