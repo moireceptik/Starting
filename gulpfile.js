@@ -41,7 +41,7 @@ gulp.task('sass', function(){
             outputStyle: 'expanded' // Указываем формат css. Default: nested. Values: nested, expanded, compact, compressed
         }).on("error", notify.onError()))
 				.pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true })) // Создаем префиксы
-				.pipe(sourcemaps.write())
+				.pipe(sourcemaps.write('../../_maps'))
         .pipe(gulp.dest('app/assets/css')) // Выгружаем результаты в папку app/assets/css
         .pipe(browserSync.reload({stream: true})) // Обновляем CSS на странице при изменении
 });

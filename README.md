@@ -7,18 +7,17 @@
 
 	- Gulp 3.9.1
 	- препроцессоры Pug + Sass (синтаксис .sass)
-	- Jquery 3.3.1
-	- Bootstrap 4.1.3
-	- Font Awesome 4.7.0
-	- OpenSans (шрифт по умолчанию)
+	- Jquery 3.4.1
+	- Bootstrap 4.3.1
+	- OpenSans (шрифт по умолчанию), иконочные шрифты (font-awesome, line-awesome)
 	- Минифицированные плагины (vendor.min.js, vendor.min.css)
-	- Оптимизация картинок на выходе и автоматическая генерация CSS спрайтов
+	- Оптимизация картинок на выходе и автоматическая генерация CSS спрайтов (.png картинок)
 	- Прописаны наиболее часто используемые миксины
 
 ## Установка:
 
 ```
-1. Выполнить команду через терминал: git clone https://github.com/moireceptik/Starting-1.git
+1. Выполнить команду через терминал: **git clone https://github.com/moireceptik/Starting-1.git**
 2. Установить Node Modules: **npm i**
 3. Запуск: **gulp**
 4. Сборка проекта в папку dist: **gulp dist**
@@ -37,4 +36,5 @@
 7. Обновить все плагины в проекте: **bower update**
 8. Установить плагины в проект: **bower i jquery bootstrap** (установит **jquery** и **bootstrap**)
 9. Удаление плагинов из проекта: **bower uninstall bootstrap** (удалит **bootstrap**)
+10. Узнать версию GULP: **gulp -v**
 ```
