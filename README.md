@@ -7,7 +7,7 @@
 
 	- Gulp 3.9.1
 	- препроцессоры Pug + Sass (синтаксис .sass)
-	- Jquery 3.4.1
+	- Jquery 3.3.1
 	- Bootstrap 4.3.1
 	- OpenSans (шрифт по умолчанию), иконочные шрифты (font-awesome, line-awesome)
 	- Минифицированные плагины (vendor.min.js, vendor.min.css)
