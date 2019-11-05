@@ -24,12 +24,10 @@ var gulp         = require('gulp'), //Подключаем Gulp
  * ============================================================ */
 
 gulp.task('pug', function(){
-		return gulp.src('app/_pug/pages/*.pug') // Берем все pug файлы из папки _pug (дочерние не трогаем)
-				//.pipe(sourcemaps.init())
+		return gulp.src('app/_pug/*.pug') // Берем все pug файлы из папки _pug (дочерние не трогаем)
         .pipe(pug({
             pretty: true // запрещаем минифицировать pug
 				}).on("error", notify.onError()))
-				//.pipe(sourcemaps.write())
         .pipe(gulp.dest('app')) // Выгружаем результаты в папку app
         .pipe(browserSync.reload({stream: true})) // Обновляем HTML на странице при изменении
 });
@@ -41,7 +39,7 @@ gulp.task('sass', function(){
             outputStyle: 'expanded' // Указываем формат css. Default: nested. Values: nested, expanded, compact, compressed
         }).on("error", notify.onError()))
 				.pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true })) // Создаем префиксы
-				.pipe(sourcemaps.write('../../_maps'))
+				.pipe(sourcemaps.write())
         .pipe(gulp.dest('app/assets/css')) // Выгружаем результаты в папку app/assets/css
         .pipe(browserSync.reload({stream: true})) // Обновляем CSS на странице при изменении
 });
@@ -91,7 +89,6 @@ gulp.task('sprite', function() {
 				padding: 0,
 				cssFormat: 'sass',
 				algorithm: 'binary-tree',
-				//cssTemplate: 'sass.template.mustache',
 				cssVarMap: function(sprite) {
 					sprite.name = 's-' + sprite.name
 				}
@@ -109,12 +106,10 @@ gulp.task('browser-sync', function() { // Создаем таск browser-sync
     });
 });
 
-gulp.task('watch', ['browser-sync', 'pug', 'sass', 'css', 'js', 'sprite'], function() {
-    gulp.watch('app/_pug/**/*.pug', ['pug']); // Наблюдение за pug файлами в папке _pug
-    gulp.watch('app/_sass/**/*.sass', ['sass']); // Наблюдение за sass файлами в папке _sass
-    gulp.watch('app/assets/images/sprite/*.*', ['sprite']); // Наблюдение за спрайтами
-    // gulp.watch('app/*.html', browserSync.reload); // Наблюдение за HTML файлами в корне проекта
-    // gulp.watch('app/assets/css/**/*.css', browserSync.reload); // Наблюдение за css файлами в папке css
+gulp.task('watch', function() {
+    gulp.watch('app/_pug/**/*.pug', gulp.parallel('pug')); // Наблюдение за pug файлами в папке _pug
+    gulp.watch('app/_sass/**/*.sass', gulp.parallel('sass')); // Наблюдение за sass файлами в папке _sass
+    gulp.watch('app/assets/images/sprite/*.*', gulp.parallel('sprite')); // Наблюдение за спрайтами
     gulp.watch('app/assets/js/**/*.js', browserSync.reload); // Наблюдение за JS файлами в папке js
 });
 
@@ -122,7 +117,7 @@ gulp.task('clean', function() {
     return del.sync('dist'); // Удаляем папку dist перед сборкой
 });
 
-gulp.task('dist', ['clean', 'img', 'pug', 'sass', 'css', 'js'], function() {
+gulp.task('export', function() {
 
 	var distCss = gulp.src('app/assets/css/**/*') // Переносим библиотеки в продакшен
 	.pipe(gulp.dest('dist/assets/css'))
@@ -143,4 +138,6 @@ gulp.task('clear', function (done) {
 	done();
 });
 
-gulp.task('default', ['watch']);
+gulp.task('dist', gulp.parallel('clean', 'img', 'pug', 'sass', 'css', 'js', 'export'));
+
+gulp.task('default', gulp.parallel('pug', 'sass', 'css', 'js', 'sprite', 'browser-sync', 'watch'));

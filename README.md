@@ -5,7 +5,7 @@
 
 ## Сборка:
 
-	- Gulp 3.9.1
+	- Gulp 4.0.2
 	- препроцессоры Pug + Sass (синтаксис .sass)
 	- Jquery 3.4.1
 	- Bootstrap 4.3.1
