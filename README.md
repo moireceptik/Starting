@@ -6,7 +6,7 @@
 ## Сборка:
 
 	- Gulp 4.0.2
-	- препроцессоры Pug + Sass (синтаксис .sass)
+	- Препроцессоры Pug + Sass (синтаксис .sass)
 	- Jquery 3.5.1
 	- Bootstrap 4.5.2
 	- OpenSans (шрифт по умолчанию), иконочные шрифты (font-awesome, line-awesome)
