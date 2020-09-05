@@ -12,8 +12,6 @@
 	- OpenSans (шрифт по умолчанию), иконочные шрифты (font-awesome, line-awesome)
 	- Минифицированные плагины (vendor.min.js, vendor.min.css)
 	- Оптимизация картинок на выходе и автоматическая генерация CSS спрайтов (.png картинок)
-	- Все .png картинки в папке app/assets/images/sprite генерируются в app/assets/images/sprite.png
-	- Выводить в .sass **+sprite($s-3)**, где **($s-3)** спрайт-иконка 3.png
 	- Прописаны наиболее часто используемые миксины
 
 ## Установка:
@@ -39,4 +37,6 @@
 8. Установить плагины в проект: **bower i jquery bootstrap** (установит **jquery** и **bootstrap**)
 9. Удаление плагинов из проекта: **bower uninstall bootstrap** (удалит **bootstrap**)
 10. Узнать версию GULP: **gulp -v**
+11. Все .png картинки в папке app/assets/images/sprite генерируются в app/assets/images/sprite.png
+12. Выводить в .sass **+sprite($s-3)**, где **($s-3)** спрайт-иконка 3.png
 ```
