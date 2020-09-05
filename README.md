@@ -7,8 +7,8 @@
 
 	- Gulp 4.0.2
 	- препроцессоры Pug + Sass (синтаксис .sass)
-	- Jquery 3.3.1
-	- Bootstrap 4.3.1
+	- Jquery 3.5.1
+	- Bootstrap 4.5.2
 	- OpenSans (шрифт по умолчанию), иконочные шрифты (font-awesome, line-awesome)
 	- Минифицированные плагины (vendor.min.js, vendor.min.css)
 	- Оптимизация картинок на выходе и автоматическая генерация CSS спрайтов (.png картинок)
@@ -38,3 +38,8 @@
 9. Удаление плагинов из проекта: **bower uninstall bootstrap** (удалит **bootstrap**)
 10. Узнать версию GULP: **gulp -v**
 ```
+
+## Оптимизация картинок:
+
+	- Все .png картинки в папке app/assets/images/sprite генерируются в app/assets/images/sprite.png
+	- Вывод в .sass **+sprite($s-3)**, где **($s-3)** спрайт-иконка 3.png

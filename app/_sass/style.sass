@@ -2,25 +2,23 @@
 
 // 1. Base (базовые стили)
 
-@import "base/mixins/media";
-@import "base/mixins/mixins";
 @import "base/colors";
 @import "base/fonts";
 @import "base/reset";
 @import "base/sprite";
-@import "base/typography";
+@import "mixins/media";
+@import "mixins/mixins";
 
-// 2. Block (блоки)
-@import "blocks/block";
-@import "blocks/modal";
-@import "blocks/dm-top";
-@import "blocks/admin-bar";
+// 2. Sass (структура)
 
-// 3. Elements (структурные элементы)
-@import "elements/buttons";
-@import "elements/form";
-@import "elements/list";
-@import "elements/nav";
+@import "typography";
+@import "button";
+@import "form";
+@import "list";
+@import "block";
+@import "dm-top";
+@import "admin-bar";
 
-// 4. Plugins (плагины)
+// 3. Plugins (плагины)
+	
 @import "plugins/bootstrap";

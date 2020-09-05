@@ -59,7 +59,8 @@ gulp.task('css', function() {
 gulp.task('js', function() {
     return gulp.src([ // Берем все необходимые библиотеки
         'app/assets/libs/jquery/dist/jquery.min.js',
-        'app/assets/libs/bootstrap/dist/js/bootstrap.min.js'
+        'app/assets/libs/bootstrap/dist/js/bootstrap.min.js',
+				'app/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js'
         ])
 				.pipe(concat('vendor.js')) // Собираем их в кучу в новом файле
 				.pipe(gulp.dest('app/assets/js')) // Выгружаем в папку app/assets/js
