@@ -46,7 +46,7 @@ gulp.task('sass', function(){
 
 gulp.task('css', function() {
 	return gulp.src([
-			'app/assets/libs/bootstrap/dist/css/bootstrap.min.css'
+			'app/assets/vendor/bootstrap/dist/css/bootstrap.min.css'
 			])
 			.on('error', console.log)
 			.pipe(concat('vendor.css')) // Собираем их в кучу в новом файле
@@ -58,9 +58,9 @@ gulp.task('css', function() {
 
 gulp.task('js', function() {
     return gulp.src([ // Берем все необходимые библиотеки
-        'app/assets/libs/jquery/dist/jquery.min.js',
-        'app/assets/libs/bootstrap/dist/js/bootstrap.min.js',
-				'app/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js'
+        'app/assets/vendor/jquery/dist/jquery.min.js',
+        'app/assets/vendor/bootstrap/dist/js/bootstrap.min.js',
+				'app/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js'
         ])
 				.pipe(concat('vendor.js')) // Собираем их в кучу в новом файле
 				.pipe(gulp.dest('app/assets/js')) // Выгружаем в папку app/assets/js
@@ -112,6 +112,7 @@ gulp.task('watch', function() {
     gulp.watch('app/_sass/**/*.sass', gulp.parallel('sass')); // Наблюдение за sass файлами в папке _sass
     gulp.watch('app/assets/images/sprite/*.*', gulp.parallel('sprite')); // Наблюдение за спрайтами
     gulp.watch('app/assets/js/**/*.js', browserSync.reload); // Наблюдение за JS файлами в папке js
+    gulp.watch('app/assets/svg/**/*.svg', browserSync.reload); // Наблюдение за SVG файлами в папке svg
 });
 
 gulp.task('clean', function() {
@@ -128,6 +129,9 @@ gulp.task('export', function() {
 
 	var distJs = gulp.src('app/assets/js/**/*') // Переносим скрипты в продакшен
 	.pipe(gulp.dest('dist/assets/js'))
+
+	var distSvg = gulp.src('app/assets/svg/**/*') // Переносим svg в продакшен
+	.pipe(gulp.dest('dist/assets/svg'))
 
 	var distHtml = gulp.src('app/*.html') // Переносим HTML в продакшен
 	.pipe(gulp.dest('dist'));
