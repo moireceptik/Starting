@@ -1,2 +1,31 @@
 @import "mixins/mixins";
 @import "base/colors";
+/* ==========================================================================
+ Dm-top
+ *========================================================================== */
+.dmtop
+	z-index: 555
+	width: 50px
+	height: 50px
+	line-height: 50px
+	background-color: #007bff
+	text-align: center
+	position: fixed
+	bottom: -100px
+	right: 30px
+	cursor: pointer
+	-webkit-transition: all 0.7s ease-in-out 0s
+	-o-transition: all 0.7s ease-in-out 0s
+	transition: all 0.7s ease-in-out 0s
+	-webkit-border-radius: 50%
+	-moz-border-radius: 50%
+	-ms-border-radius: 50%
+	border-radius: 50%
+	.svg 
+		width: 15px
+		height: 15px
+		fill: #ffffff
+		margin-right: 0
+		margin-bottom: 5px
+	+w(768)
+		right: 15px
