@@ -34,9 +34,12 @@
 5. Согласиться на обновления: **ncu -u**
 6. Посмотреть список и версии установленных плагинов в проекте: **bower list**
 7. Обновить все плагины в проекте: **bower update**
-8. Установить плагины в проект: **bower i jquery bootstrap** (установит **jquery** и **bootstrap**)
+8. Установить плагины в проект: **bower i jquery bootstrap**, **bower install bootstrap#v4.6.0** (установит **jquery** и **bootstrap**, установит **bootstrap** нужной версии)
 9. Удаление плагинов из проекта: **bower uninstall bootstrap** (удалит **bootstrap**)
-10. Узнать версию GULP: **gulp -v**
+10. Узнать версию GULP: **gulp -v** или Node **node -v**
 11. Все .png картинки в папке app/assets/images/sprite генерируются в app/assets/images/sprite.png
 12. Выводить в .sass **+sprite($s-3)**, где **($s-3)** спрайт-иконка 3.png
 ```
+
+## Git for Windows
+https://gitforwindows.org/
